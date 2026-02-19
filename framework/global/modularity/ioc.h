@@ -42,6 +42,11 @@ inline ModulesIoC* ioc(const ContextPtr& ctx)
     return kors::modularity::ioc(ctx);
 }
 
+inline ModulesIoC* ioc()
+{
+    return kors::modularity::ioc(nullptr);
+}
+
 inline ModulesIoC* globalIoc()
 {
     return kors::modularity::globalIoc();

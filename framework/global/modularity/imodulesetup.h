@@ -88,6 +88,8 @@ public:
     }
 
     std::shared_ptr<IApplication> application() const { return m_application; }
+    const ContextPtr iocContext() const { return m_application->iocContext(); }
+    ModulesIoC* ioc() const { return m_application->ioc(); }
 
 protected:
     std::shared_ptr<IApplication> m_application;

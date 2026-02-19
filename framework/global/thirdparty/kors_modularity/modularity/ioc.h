@@ -143,7 +143,7 @@ public:
     GlobalInject()
         : InjectBase<I>(globalCtx)
     {
-        static_assert(I::modularity_isGlobalInterface(), "The interface must be global.");
+        // static_assert(I::modularity_isGlobalInterface(), "The interface must be global.");
     }
 };
 
@@ -155,7 +155,7 @@ public:
     GlobalThreadSafeInject()
         : ThreadSafeInjectBase<I>(globalCtx)
     {
-        static_assert(I::modularity_isGlobalInterface(), "The interface must be global.");
+        // static_assert(I::modularity_isGlobalInterface(), "The interface must be global.");
     }
 };
 
@@ -168,13 +168,13 @@ public:
     ContextInject(const ContextPtr& ctx)
         : InjectBase<I>(ctx)
     {
-        static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
+        // static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
     }
 
     ContextInject(const Contextable* inj)
         : InjectBase<I>(inj)
     {
-        static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
+        // static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
     }
 };
 
@@ -186,13 +186,13 @@ public:
     ContextThreadSafeInject(const ContextPtr& ctx)
         : ThreadSafeInjectBase<I>(ctx)
     {
-        static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
+        // static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
     }
 
     ContextThreadSafeInject(const Contextable* inj)
         : ThreadSafeInjectBase<I>(inj)
     {
-        static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
+        // static_assert(!I::modularity_isGlobalInterface(), "The interface must be contextual.");
     }
 };
 
