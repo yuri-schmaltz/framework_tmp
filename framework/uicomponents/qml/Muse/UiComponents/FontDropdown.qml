@@ -1,11 +1,11 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-only
- * MuseScore-CLA-applies
+ * MuseScore-Studio-CLA-applies
  *
- * MuseScore
+ * MuseScore Studio
  * Music Composition & Notation
  *
- * Copyright (C) 2021 MuseScore Limited and others
+ * Copyright (C) 2021 MuseScore Limited
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as
@@ -19,24 +19,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import QtQuick 2.15
 
-#include "languagesstubmodule.h"
+StyledDropdown {
+    contentListItem: Component {
+        StyledTextLabel {
+            anchors.fill: parent
+            anchors.leftMargin: 12
+            horizontalAlignment: Text.AlignLeft
 
-#include "modularity/ioc.h"
+            // the "text" property must be set from outside
 
-#include "languagesconfigurationstub.h"
-#include "languagesservicestub.h"
+            font.family: text ? text : ui.theme.bodyFont.family
+            font.pixelSize: Math.max(ui.theme.bodyFont.pixelSize, 16)
 
-using namespace muse::languages;
-using namespace muse::modularity;
-
-std::string LanguagesModule::moduleName() const
-{
-    return "languages_stub";
-}
-
-void LanguagesModule::registerExports()
-{
-    globalIoc()->registerExport<ILanguagesConfiguration>(moduleName(), new LanguagesConfigurationStub());
-    globalIoc()->registerExport<ILanguagesService>(moduleName(), new LanguagesServiceStub());
+            clip: true
+            textFormat: Text.PlainText
+        }
+    }
 }
