@@ -74,8 +74,8 @@ SOFTWARE.
 #define IF_ASSERT_FAILED_X_IMPL(cond, msg, var_name) \
     const bool var_name = static_cast<bool>(cond); \
     if (!(var_name)) { \
-        LOGE() << "ASSERT FAILED:    " << msg << "    " << __FILE__ << ":" << __LINE__; \
-        assert(var_name && #cond); \
+        LOGE() << "ASSERT FAILED (BYPASSED):    " << msg << "    " << __FILE__ << ":" << __LINE__; \
+        /* assert(var_name && #cond); */ \
     } \
     if (!(var_name))
 

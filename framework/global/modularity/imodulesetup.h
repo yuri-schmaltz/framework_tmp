@@ -88,8 +88,8 @@ public:
     }
 
     std::shared_ptr<IApplication> application() const { return m_application; }
-    const ContextPtr iocContext() const { return m_application->iocContext(); }
-    ModulesIoC* ioc() const { return m_application->ioc(); }
+    const ContextPtr iocContext() const { auto app = m_application; return app ? app->iocContext() : muse::modularity::globalCtx(); }
+    ModulesIoC* ioc() const { auto app = m_application; return app ? app->ioc() : muse::modularity::globalIoc(); }
 
 protected:
     std::shared_ptr<IApplication> m_application;
